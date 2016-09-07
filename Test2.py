@@ -32,7 +32,7 @@ while(True):
 
     orig = frame.copy()
 
-    (rects, weights) = hog.detectMultiScale(frame, 0, winStride=(4, 4), padding=(8, 8), scale=1.05)
+    (rects, weights) = hog.detectMultiScale(frame, winStride=(4, 4), padding=(8, 8), scale=1.05)
 
     for (x, y, w, h) in rects:
       cv2.rectangle(orig, (x, y), (x + w, y + h), (0, 0, 255), 2)
@@ -48,6 +48,9 @@ while(True):
     cv2.imshow('frame', frame)
 
 
+	count = count + len(pick)
+
+    print count
         
     ch = 0xFF & cv2.waitKey(1)
     if ch == 27:
